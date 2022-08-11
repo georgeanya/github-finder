@@ -1,13 +1,13 @@
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
+import 'tailwindcss/tailwind.css'
+import '../styles/globals.css'
+import { ThemeProvider } from 'next-themes'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <p className="flex  cursor-pointer items-center">My Github Finder</p>
+    <ThemeProvider attribute="class">
       <Component {...pageProps} />
-    </>
-  );
+    </ThemeProvider>
+  )
 }
 
-export default MyApp;
+export default MyApp
