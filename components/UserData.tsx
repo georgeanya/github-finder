@@ -4,7 +4,7 @@ import {
     OfficeBuildingIcon,
   } from '@heroicons/react/solid'
 
-const UserData = ({location, twitterUsername,blog, company}) => {
+const UserData = ({location, twitterUsername,blog, company}: any) => {
   return (
     <div className="grid grid-cols-1 gap-6 px-2 py-4 md:grid-cols-2 md:gap-x-10">
           <div className="flex items-center  space-x-2 font-semibold text-white transition-colors duration-150 hover:text-blue-400">

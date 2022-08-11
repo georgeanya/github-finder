@@ -1,6 +1,6 @@
 import Avatar from './Avatar'
 
-const UserProfile = ({ name, date, username ,imageURL}) => {
+const UserProfile = ({ name, date, username ,imageURL}: any) => {
   return (
     <div className=" flex w-full items-center space-x-4  md:justify-evenly md:space-x-6">
       <Avatar imageURL={imageURL} />

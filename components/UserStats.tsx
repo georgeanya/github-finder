@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UserStats = ({repos,followers ,following}) => {
+const UserStats = ({repos,followers ,following}: any) => {
   return (
     <div className=" grid grid-cols-3 gap-6  divide-x divide-gray-700 rounded-xl bg-gray-50 py-4 dark:divide-gray-50 dark:bg-[#1e253f]">
     <div className="align-items flex flex-col px-4 text-center">

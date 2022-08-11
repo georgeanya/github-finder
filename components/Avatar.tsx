@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Vercel from "../public/vercel.svg"
-const Avatar = ({imageURL}) => {
+const Avatar = ({imageURL}: any) => {
   return (
     <div className=" w-[120px] h-[120px] ml-8 ring-[5px] ring-[#3b52d4] dark:ring-[#053bff] rounded-full ">
     {imageURL ? (

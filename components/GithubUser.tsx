@@ -3,9 +3,9 @@ import UserBio from './UserBio'
 import UserStats from './UserStats'
 import UserData from './UserData'
 
-const GithubUser = (props) => {
+const GithubUser = (props: any) => {
   const date = new Date(props.data.created_at)
-  const newDate = date.toDateString(4, 10).slice(4, 15)
+  const newDate = date.toDateString().slice(4, 15)
 
   return (
     <div className="mx-auto mt-6 flex max-w-md min-h-[470px] flex-col items-end justify-between  space-y-4 rounded-lg bg-gray-200 py-6 transition duration-300 ease-in dark:bg-[#2b365e] md:min-h-fit md:max-w-2xl">
