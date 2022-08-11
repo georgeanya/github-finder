@@ -6,7 +6,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Loading } from '../components/Loading'
 
 export default function Home() {
-  let API = 'https://api.github.com/users/octocat'
+  let API = 'https://api.github.com/users/georgeanya'
 
   const userRef = useRef(null)
   const [userName, setUserName] = useState('')
