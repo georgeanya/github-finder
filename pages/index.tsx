@@ -1,40 +1,31 @@
-import Head from 'next/head'
-import SearchBar from '../components/searchbar'
-import Navbar from '../components/navbar'
-import GithubUser from '../components/GithubUser'
-import { useState, useRef, useEffect } from 'react'
-import { Loading } from '../components/Loading'
-
+import Head from "next/head";
+import SearchBar from "../components/searchbar";
+import Navbar from "../components/navbar";
+import GithubUser from "../components/GithubUser";
+import { useState, useRef, useEffect } from "react";
+import { Loading } from "../components/Loading";
+import { useQuery } from "react-query";
+import axios from "axios";
 export default function Home() {
-  let API = 'https://api.github.com/users/georgeanya'
-
-  const userRef = useRef('')
-  const [userName, setUserName] = useState('')
-  const [data, setData] = useState('')
-  const [isLoading, setLoading] = useState(false)
+  let API = "https://api.github.com/users/georgeanya";
+  const userRef: any = useRef();
+  const [userName, setUserName] = useState();
 
   function handleClick() {
     if (userRef.current != null) {
-      setUserName(userRef.current)
+      setUserName(userRef.current?.value);
     }
+    console.log(userRef.current?.value);
   }
-  useEffect(() => {
-    setLoading(true)
+
+  const { isLoading, data } = useQuery("github", () => {
     if (userName) {
-      API = `https://api.github.com/users/${userName}`
+      API = `https://api.github.com/users/${userName}`;
     }
+    return axios.get(API);
+  });
 
-    fetch(API)
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data)
-        setLoading(false)
-      })
-  }, [userName]);
-
-  if(!data) (
-  <p>No Profile data.</p>
-  )
+  if (!data?.data) <p>No Profile data.</p>;
 
   return (
     <div className="min-h-screen bg-gray-50 py-7 dark:bg-[#1e253f]">
@@ -43,17 +34,19 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      
-      {isLoading ? <Loading /> :
-      <>
-      <SearchBar
-        userName={userName}
-        handleClick={handleClick}
-        userRef={userRef}
-      />
-      <GithubUser data={data} />
-      </>
-      }
+
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <SearchBar
+            userName={userName}
+            handleClick={handleClick}
+            userRef={userRef}
+          />
+          <GithubUser data={data?.data} />
+        </>
+      )}
     </div>
-  )
+  );
 }
