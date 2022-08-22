@@ -1,6 +1,6 @@
 import Head from "next/head";
-import SearchBar from "../components/searchbar";
-import Navbar from "../components/navbar";
+import SearchBar from "../components/SearchBar";
+import Navbar from "../components/NavBar";
 import GithubUser from "../components/GithubUser";
 import { useState, useRef, useEffect } from "react";
 import { Loading } from "../components/Loading";
