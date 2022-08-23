@@ -2,7 +2,7 @@ import Head from "next/head";
 import SearchBar from "../components/searchbar";
 import Navbar from "../components/navbar";
 import GithubUser from "../components/GithubUser";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Loading } from "../components/Loading";
 import { useQuery } from "react-query";
 import axios from "axios";
